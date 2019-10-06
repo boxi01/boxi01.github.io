@@ -1,0 +1,191 @@
+body {
+  margin: 0;
+  font-family: 'Space Mono', monospace;
+}
+
+header {
+	height: 80vh;
+  background-image: url('../img/banner.jpg');
+  background-attachment: fixed;
+  background-size: cover;
+  text-align: center;
+  position: relative;
+  margin-bottom: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+h1, h2, h3 {
+
+	font-family: 'Radley', serif;
+	line-height: 1;
+  	margin: 0;
+	font-weight: normal;
+}
+
+header h1 {
+	font-family: 'Radley', serif;
+	font-size: 200px;
+	letter-spacing: 1px;
+	color: white;
+}
+
+h1 {
+	font-family: 'Radley', serif;
+	font-size: 100px;
+	letter-spacing: 1px;
+	text-align: center;
+}
+
+header .main-text{
+
+	font-family: 'Space Mono';
+	text-transform: lowercase;
+  	font-size: 18px;
+  	font-weight: 400;
+  	margin-top: 10px;
+  	color: white;
+}
+
+h2 {
+	font-size: 40px;
+	margin-top: 30px;
+	margin-bottom: 30px;
+}
+
+h3 {
+	margin-top: 20px;
+	color: #F04D23;
+	font-size: 24px;
+}
+
+p {
+	font-size: 16px;
+	text-transform: none;
+  font-weight: 200;
+  line-height: 160%;
+}
+
+a {
+	font-size: 14px;
+	color: #F04D23;
+	text-decoration: none;
+}
+
+a:hover {
+  font-weight: bold;
+}
+
+.author{
+	color:white;
+	font-size: 10px;
+	position: absolute;
+	transform-origin: 0 0;
+	bottom: 5px;
+	left: 11px;
+	transform: rotate(-90deg);
+}
+
+.leaves {
+	height: 500px;
+	padding-right: 50px;
+}
+
+.image {
+  position: relative;
+}
+.image::before {
+	content: url(../img/cross.svg);
+	position: absolute;
+	width: 190px;
+	top: -40px;
+	z-index: -1;
+	left: -100px;
+}
+
+.contact {
+  position: relative;
+}
+.contact::before {
+	content: url(../img/line.svg);
+	position: absolute;
+	width: 930px;
+	z-index: -1;
+	left: 100px;
+	top: 110px;
+
+}
+
+nav {
+	position: fixed;
+	z-index: 1;
+	top: 0;
+}
+
+
+nav ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+nav li {
+  font-family: 'Space Mono', monospace;
+  font-size: 12px;
+  color: black;
+  margin: 25px 12.5px 25px 12.5px;
+  display: inline;
+}
+
+.socialmedia {
+  position: fixed;
+  left: 0;
+  top: 30vh;
+  width: 40px;
+}
+
+nav li a {
+  color: #000;
+}
+
+ul {
+  padding: 0;
+}
+
+.container li {
+	font-family: 'Radley', serif;
+	list-style: none;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	border-bottom: 2px solid #eee
+}
+
+footer {
+  background: #F2F2F2;
+  text-align: center;
+}
+
+.insta{
+  color:#F04D23;
+}
+
+img {
+  max-width: 100%;
+}
+
+
+section.contact{
+  padding-top: 50px;
+  padding-bottom: 50px;
+  text-align: center;
+}
+
+.email{
+  padding-top: 50px;
+}
+
+#img-color{
+	width: 91%;
+}
