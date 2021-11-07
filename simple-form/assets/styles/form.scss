@@ -1,0 +1,61 @@
+.form {
+  margin-top: 2rem;
+  padding: 3rem 5rem;
+  background-color: $white;
+  border-radius: $radius;
+  
+  &__content {
+    height: calc(100vh - 4rem);
+    width: 100vw;
+  }
+  &__section {
+    margin-top: 2rem;
+  }
+
+  &__header {
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
+
+  &__field {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__label {
+    font-size: 0.875rem;
+    margin-bottom: 0.2rem;
+  }
+
+  &__input {
+    border-radius: 0.25rem;
+    padding-left: 1rem;
+    border: 2px solid $light-grey;
+    line-height: 2rem;
+    outline: none;
+
+    &::placeholder {
+      font-size: 0.875rem;
+      color: $medium-grey;
+      margin-left: 0.5rem;
+    }
+    &:focus {
+      border: 2px solid $yellow;
+    }
+  }
+
+  &__submit-btn {
+    float: right;
+    border-radius: $radius;
+    background-color: $yellow;
+    border: 2px solid $yellow;
+    padding: 0.5rem 2.5rem;
+    color: $white;
+  }
+
+  &__submit-btn__icon {
+    width: 0.8rem;
+    height: 0.8rem;
+    margin-left: 0.5rem;
+  }
+}

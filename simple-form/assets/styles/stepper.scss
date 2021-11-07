@@ -1,0 +1,56 @@
+.stepper {
+  position: absolute;
+  bottom: 2rem;
+
+  &__item {
+    display: flex;
+    position: relative;
+    gap: 1rem;
+
+    &::before {
+      content: "";
+      border: 2px solid $light-grey;
+      width: 1.25rem;
+      height: 1.25rem;
+      border-radius: 100%;
+      background-color: $dark-blue;
+      z-index: 1;
+    }
+
+    &:not(:last-child)::after {
+      content: '';
+      position: absolute;
+      width: 2px;
+      background-color: $light-grey;
+      left: 0.5rem;
+      top: 0;
+      bottom: 0;
+    }
+
+    &__title {
+      color: $light-grey;
+      margin-bottom: 0;
+    }
+    &__text {
+      color: $light-grey;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+    }
+
+    &--active {
+      &::before {
+        border: 2px solid $yellow;
+        background-color: $yellow;
+        -webkit-box-shadow: 0px 0px 18px 0px rgba(252, 163, 17, 1);
+        -moz-box-shadow: 0px 0px 18px 0px rgba(252, 163, 17, 1);
+        box-shadow: 0px 0px 18px 0px rgba(252, 163, 17, 1);
+      }
+      .stepper__item__title {
+        color: $yellow;
+      }
+      
+    }
+  }
+
+
+}
