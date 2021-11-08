@@ -9,5 +9,6 @@ Thanks to this challenge I learned **HTML, CSS and Bootstrap**
 
 **Simple Form**
 
-I'm currently working on small project to imporve my form creation skilss
+I'm currently working on small project to imporve my form creation skils
+
 [View Site](https://boxi01.github.io/simple-form/)
