@@ -1,24 +1,78 @@
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<html>
+
 <head>
   <meta charset="utf-8">
-  <title>Boxi</title>
-  <base href="/">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Orange by The Awwwesomes</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" 
         rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" 
         crossorigin="anonymous">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" 
-        rel="stylesheet">
-  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="stylesheet" href="css/grid.css" type="text/css">
+  <link rel="stylesheet" href="css/styles.css" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Radley|Space+Mono" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" 
+          integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" 
+          crossorigin="anonymous"></script>
+  <script src="main.js"></script>
 </head>
 <body>
-  Orange Layout
+  <div class="container-fluid h-100">
+    <div class="row main-content h-100">
+      <div class="col-lg-5 bg-black" style="overflow: hidden;">
+        <ol class="content-list">
+          <li><a id="about-me-link" class="content-list-item active" onclick="onLinkClick(0)">about me</a></li>
+          <li><a id="work-experience-link" class="content-list-item" onclick="onLinkClick(1)">work experience</a></li>
+          <li><a id="education-link" class="content-list-item" onclick="onLinkClick(2)">education</a></li>
+          <li><a class="content-list-item">projects</a></li>
+        </ol>
+      </div>
+      <div class="col-lg-7 bg-white my-data" style="overflow: hidden;">
+        <div id="about-me" class="my-data-center">
+          <p class="my-data-name">Joanna Pudełko</p>
+          <p class="my-data-contact">✉️ joannapudelko95@gmail.com</p>
+        </div>
+        <div id="work-experience" class="my-data-top hidden-section">
+          <p class="my-data-name">Work experience</p>
+          <p class="my-data-title">Centralny Ośrodek Informatyki</p>
+          <ul class="work-experience-list no-style-list padding-left-0">
+            <li><p class="data-text-light"><strong>Intern</strong> (January – March 2020 / part-time)</p></li>
+            <li><p class="data-text-light"><strong>Junior Frontend Developer</strong> (April – December 2020 / part-time)</p></li>
+            <li><p class="data-text-light"><strong>Frontend Developer</strong> (January 2021 – present / full-time) </p></li>
+          </ul>
+          <ul class="work-experience-list">
+            <li><p class="data-text-light">Developing new online services for citizens (Angular 5, 11)</p></li>
+            <li><p class="data-text-light">Fixing bugs in existing services</p></li>
+            <li><p class="data-text-light">Updating, maintaining and creating new components</p></li>
+            <li><p class="data-text-light">Taking part in the development, design, and analysis of the system
+              for officials (Katalog Administarcji Publicznej)</p></li>
+            <li><p class="data-text-light">Cooperating with UX/UI designers, analysts,
+              and backend developers</p></li>
+            <li><p class="data-text-light">Adding new features to existing code in JavaScript</p></li>
+          </ul>
 
-  I took a part in #codesummer challenge 2019 organised by The Awwwesomes. As a result I coded this orange layout designed by The Awwwesomes as well.
-
-  Thanks to this challenge I learned HTML, CSS and Bootstrap  
+          <p class="my-data-title mt-5">Fundacja Academic Partners</p>
+          <ul class="work-experience-list no-style-list padding-left-0">
+            <li><p class="data-text-light"><strong>Junior UX/UI designer</strong> (August 2018 – January 2019 / full-time)</p></li>
+          </ul>
+          <ul class="work-experience-list">
+            <li><p class="data-text-light">Prototyping and designing websites</p></li>
+            <li><p class="data-text-light">Editing HTML and CSS files</p></li>
+            <li><p class="data-text-light">Writing specifications for developers</p></li>
+            <li><p class="data-text-light">Manual testing websites</p></li>
+          </ul>
+        </div>
+        <div id="education" class="my-data-top hidden-section">
+          <p class="my-data-name">education</p>
+          <p class="my-data-title">Master, Computer Science | 2018 - 2021</p>
+          <p>Warsaw University of Technology</p>
+          <p>Faculty of Electronics and Information Technology</p>
+          <p>Thesis: Transfer learning for object detection in inartificial images</p>
+        </div>
+      </div>
+    </div>
+  </div>
 </body>
+
 </html>

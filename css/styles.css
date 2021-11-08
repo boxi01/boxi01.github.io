@@ -1,0 +1,95 @@
+:root {
+  --white: #ffffff;
+  --black: #000000;
+  --mustard: #fee34bff;
+}
+
+body {
+  height: 100vh;
+  font-family: 'Poppins', sans-serif;
+}
+
+.content-fixed {
+  overflow: hidden;
+}
+
+.content-list {
+  position: fixed;
+  list-style: none;
+  left: 0;
+  top: 30%;
+  text-align: left;
+}
+
+.content-list li a {
+  font-size: 2.5rem;
+  color: var(--white);
+  font-weight: bolder;
+  text-decoration: none;
+}
+
+.content-list li a:hover,
+.content-list li .active {
+  color: var(--black);
+  cursor: pointer;
+  text-shadow: -1px 1px 0 var(--white),
+                1px 1px 0 var(--white),
+                1px -1px 0 var(--white),
+               -1px -1px 0 var(--white);
+}
+
+.my-data {
+  right: 0;
+  overflow: auto;
+  padding-bottom: 5rem;
+}
+
+.my-data-center {
+  position: relative;
+  text-align: center;
+  top: 30%;
+}
+
+.my-data-top {
+  position: relative;
+  text-align: left;
+  padding: 2rem;
+  top: 10%;
+}
+
+.my-data-name {
+  font-size: 2rem;
+  color: var(--black);
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+.my-data-title {
+  font-size: 1rem;
+  color: var(--black);
+  font-weight: 600;
+}
+
+.my-data-contact {
+}
+
+.hidden-section {
+  display: none;
+}
+
+.data-text-light {
+  font-weight: 200;
+  color: var(--black);
+}
+
+.work-experience-list p {
+  margin-bottom: 0;
+}
+
+.no-style-list {
+  list-style: none;
+}
+
+.padding-left-0 {
+  padding-left: 0;
+}
