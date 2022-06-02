@@ -6,3 +6,9 @@ As a result I coded this orange layout designed by The Awwwesomes as well.
 Thanks to this challenge I learned **HTML, CSS and Bootstrap**
 
 [View Site](https://boxi01.github.io/orange-layout/)
+
+**Simple Form**
+
+I'm currently working on small project to imporve my form creation skils
+
+[View Site](https://boxi01.github.io/simple-form/)
