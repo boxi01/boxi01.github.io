@@ -1,0 +1,32 @@
+.social-media {
+  position: fixed;
+  bottom: 0;
+  left: 2.2rem;
+  right: auto;
+  width: 1.5rem;
+}
+
+.social-media ul {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin: 0;
+}
+
+.social-media li img {
+  width: 100%;
+  height: auto;
+}
+
+.social-media ul li:last-child {
+  height: 4rem;
+  width: 1px;
+  margin: 0 auto;
+  background-color: var(--dark);
+}
+
+@media screen and (max-width: 567px) {
+  .social-media {
+    display: none;
+  }
+}

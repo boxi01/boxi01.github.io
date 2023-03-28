@@ -1,0 +1,13 @@
+.education__item__title {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+@media screen and (max-width: 567px) {
+  .education__item__title {
+    align-items: flex-start;
+    gap: 0.5rem;
+    flex-direction: column;
+  }
+}

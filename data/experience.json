@@ -1,0 +1,55 @@
+{
+  "title": "Experience",
+  "companies": [
+    {
+      "name": "Enginiety",
+      "code": "enginiety",
+      "roles": [
+        {
+          "name": "Frontend developer",
+          "date": "Jan 2022 - current",
+          "responsibilities" : [
+            "Developing e-commerces using SAP Spartacus library and Hybris",
+            "Customizing exsisted components, services and creating new ones",
+            "Implementing application state with NgRx",
+            "Modyfing shared components library",
+            "Working with international team"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Centralny Ośrodek Informatyki",
+      "code": "coi",
+      "roles": [
+        {
+          "name": "Frontend developer",
+          "date": "Feb 2021 - Dec 2021",
+          "responsibilities" : [
+            "Adding new features to existing code in JavaScript",
+            "Adding new features to existing services (Angular)",
+            "Taking part in the development, design, and analysis of the system for officials"
+          ]
+        },
+        {
+          "name": "Junior Frontend developer",
+          "date": "Apr 2020 - Jan 2021",
+          "responsibilities" : [
+            "Developing new online services for citizens",
+            "Fixing bugs in existing services",
+            "Updating, maintaining, and creating new components",
+            "Cooperating with UX/UI designers, analysts, and backen developers"
+          ]
+        },
+        {
+          "name": "Intern",
+          "date": "Jan 2020 - Mar 2020",
+          "responsibilities" : [
+            "Fixing bugs in existing services",
+            "Familiarizing yourself with the projects"
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+@import "./variables.css";
+
+.about__item {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.about__item > div {
+  width: 50%;
+}
+
+.about__item__image {
+  border-radius: 50%;
+  position: relative;
+  width: 20vw;
+  height: 20vw;
+  object-fit: cover;
+  filter: grayscale(100%) contrast(120%);
+}

@@ -1,0 +1,22 @@
+@import "./variables.css";
+
+button {
+  border: 2px solid var(--accent);
+  border-radius: 4px;
+  background-color: transparent;
+  padding: 0.7rem 1rem;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+button:hover {
+  background-color: var(--accent);
+  transition: background-color 0.2s ease;
+  color: var(--dark);
+  cursor: pointer;
+}
+
+a {
+  text-decoration: none;
+  color: var(--dark);
+}

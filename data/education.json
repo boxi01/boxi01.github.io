@@ -1,0 +1,22 @@
+{
+  "title": "Education",
+  "levels": [
+    {
+      "title": "Master, Computer Science",
+      "date": "2018 &ndash; 2021",
+      "uni": "Warsaw University of Technology",
+      "faculty": "Faculty of Electronics and Information Technology",
+      "specialization": "specialization: Information Systems",
+      "thesis": "Thesis: Transfer learning for object detection in inartificial images",
+      "additionalInfo": "Universitat Politècnica de València<br>Student exchange program Erasmus +"
+    },
+    {
+      "title": "Bachelor, Biomedical Engineering",
+      "date": "2014 &ndash; 2018",
+      "uni": "Warsaw University of Technology",
+      "faculty": "Faculty of Electronics and Information Technology",
+      "thesis": "Thesis: Empirical Mode Decomposition in medical images"
+    }
+  ]
+
+}
