@@ -1,57 +1,58 @@
 let countiresList = [];
-let isDataLoaded = false;
 
 document.addEventListener("DOMContentLoaded", function () {
-
+  addInuptListeners();
 });
 
+document.getElementById('country-selector-options').addEventListener("click", function (event) {
+  setSelectedOption(event.target.innerHTML);
+  toggleCountriesList();
+  openModal();
+});
 
-// window.addEventListener('load', function () {
-
-// });
-
-
-function loadCountriesList() {
-  fetch('https://restcountries.com/v2/all')
+function getData(name) {
+  showLoader();
+  fetch(`https://restcountries.com/v3.1/name/${name}`)
     .then(response => {
-      return response.json()
+      return response.json();
     })
     .then(countries => {
       countiresList = countries;
-      isDataLoaded = true;
+      console.log(countiresList)
       createCountiersList(countiresList);
+      toggleCountriesList();
       hideLoader();
-      showContent();
-      addListeners();
     })
+    .catch((error) => {
+      console.error("There has been a problem with your fetch operation:", error);
+    });
 }
 
 function createCountiersList(list) {
-  var countrySelectorOptions = document.getElementById('country-selector-options');
+  const countrySelectorOptions = document.getElementById('country-selector-options');
+  countrySelectorOptions.style.height = `${list.length * 60}px`
   countrySelectorOptions.innerHTML = '';
   list.forEach((country, index) => {
-    countrySelectorOptions.innerHTML += 
-    `<div value="${country.alpha3Code}" id="option${index}" class="country-selector__option">
-    <img class="country-selector__option__flag" src="${country.flag}">
-    <p class="country-selector__option__name">${country.name}</p>
-    </div>`;
+    countrySelectorOptions.innerHTML +=
+      `<div value="${country.cca3}" id="option${index}" class="country-selector__option">
+        <img class="country-selector__option__flag" src="${country.flags.svg}">
+        <p class="country-selector__option__name">${country.name.official}</p>
+      </div>`;
   })
+}
+
+function displaySelectedCountryDetails() {
+  createCountryDetails();
+  openModal();
+}
+
+function createCountryDetails() {
+
 }
 
 function toggleCountriesList() {
   const countrySelector = document.getElementById('country-selector');
-  countrySelector.classList.toggle('opened')
-  // if (countrySelector.classList.contains('opened')) {
-  //   countrySelector.classList.remove('opened');
-  // } else {
-  //   countrySelector.classList.add('opened');
-  // }
-  // var countrySelectorOptions = document.getElementById('country-selector-options');
-  // if (countrySelectorOptions.classList.contains('country-selector__content--hide')) {
-  //   countrySelectorOptions.classList.remove('country-selector__content--hide');
-  // } else {
-  //   countrySelectorOptions.classList.add('country-selector__content--hide');
-  // }
+  countrySelector.classList.toggle('opened');
 }
 
 function setSelectedOption(name) {
@@ -67,28 +68,41 @@ function toggleIconRemove(event) {
   }
 }
 
+function removeText() {
+  const input = document.getElementById('country-selector__input');
+  input.value = '';
+}
+
 function hideLoader() {
   const loader = document.getElementById('loader');
   loader.classList.add('hide');
 }
 
-function showContent() {
-  const mainContent = document.getElementById('main');
-  mainContent.classList.remove('hide');
+function showLoader() {
+  const loader = document.getElementById('loader');
+  loader.classList.remove('hide');
 }
 
-function addListeners() {
-  const input =  document.getElementById('country-selector__input');
-  const optionList = document.querySelectorAll('.country-selector__option');
-  
+function openModal() {
+  const modal = document.getElementById('modal');
+  modal.classList.remove('hide');
+}
+
+function addInuptListeners() {
+  const input = document.getElementById('country-selector__input');
+  // const optionList = document.querySelectorAll('.country-selector__option');
+
   input.addEventListener("click", () => {
-    toggleCountriesList();
+    // toggleCountriesList();
   });
 
   input.addEventListener("input", (event) => {
     toggleIconRemove(event);
 
     let inputValue = input.value.toLowerCase();
+    if (inputValue.length >= 3) {
+      getData(inputValue);
+    }
 
     // const countrySelector = document.getElementById('country-selector');
     // if (inputValue) {
@@ -96,32 +110,28 @@ function addListeners() {
     // } else {
     //   countrySelector.classList.remove('filtered');
     // }
- 
-
-    [...optionList].forEach(option => {
-      const name = option.querySelector('.country-selector__option__name').innerHTML; 
-      if (!name.toLowerCase().includes(inputValue)) {
-        option.classList.add('hide');
-      } else {
-        option.classList.remove('hide');
-      }
-    })
 
 
-  //   const filteredList = countiresList.filter(country => {
-  //     // const name = option.querySelector('.country-selector__option__name').innerHTML;
-  //     // console.log(name.toLowerCase())
-  //     // console.log(inputValue)
-  //     return country.name.toLowerCase().includes(inputValue)
-  //   })
+    // [...optionList].forEach(option => {
+    //   const name = option.querySelector('.country-selector__option__name').innerHTML;
+    //   if (!name.toLowerCase().includes(inputValue)) {
+    //     option.classList.add('hide');
+    //   } else {
+    //     option.classList.remove('hide');
+    //   }
+    // })
 
-  // this.createCountiersList(filteredList);    
+
+    //   const filteredList = countiresList.filter(country => {
+    //     // const name = option.querySelector('.country-selector__option__name').innerHTML;
+    //     // console.log(name.toLowerCase())
+    //     // console.log(inputValue)
+    //     return country.name.toLowerCase().includes(inputValue)
+    //   })
+
+    // this.createCountiersList(filteredList);    
   });
 
-  document.getElementById('country-selector-options').addEventListener("click", function (event) {
-    setSelectedOption(event.target.innerHTML);
-    toggleCountriesList();
-  });
 }
 
-loadCountriesList();
+// loadCountriesList();
