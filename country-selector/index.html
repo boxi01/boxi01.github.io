@@ -37,8 +37,14 @@
         ></div>
       </div>
     </div>
-    <div id="modal" class="country-details-modal hide">
-      <div>aaaa</div>
+    <div id="modal" class="country-details hide">
+      <div id="modal-content" class="country-details__content"></div>
+      <button
+        class="country-details__close-icon"
+        onclick="closeModal(); removeText()"
+      >
+        &times
+      </button>
     </div>
   </body>
   <script src="./script.js" defer></script>

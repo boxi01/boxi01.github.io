@@ -4,11 +4,6 @@ document.addEventListener("DOMContentLoaded", function () {
   addInuptListeners();
 });
 
-document.getElementById('country-selector-options').addEventListener("click", function (event) {
-  setSelectedOption(event.target.innerHTML);
-  toggleCountriesList();
-  openModal();
-});
 
 function getData(name) {
   showLoader();
@@ -18,10 +13,9 @@ function getData(name) {
     })
     .then(countries => {
       countiresList = countries;
-      console.log(countiresList)
-      createCountiersList(countiresList);
-      toggleCountriesList();
-      hideLoader();
+      if (countiresList.length > 0) {
+        createCountiersList(countiresList);
+      }
     })
     .catch((error) => {
       console.error("There has been a problem with your fetch operation:", error);
@@ -30,47 +24,106 @@ function getData(name) {
 
 function createCountiersList(list) {
   const countrySelectorOptions = document.getElementById('country-selector-options');
-  countrySelectorOptions.style.height = `${list.length * 60}px`
+  countrySelectorOptions.style.height = `${list.length * 45}px`
   countrySelectorOptions.innerHTML = '';
   list.forEach((country, index) => {
     countrySelectorOptions.innerHTML +=
-      `<div value="${country.cca3}" id="option${index}" class="country-selector__option">
-        <img class="country-selector__option__flag" src="${country.flags.svg}">
-        <p class="country-selector__option__name">${country.name.official}</p>
+      `<div id="option${index}" class="country-selector__option" onclick="setSelectedOption(event); displaySelectedCountryDetails(event)">
+        <img class="country-selector__option__flag flag" src="${country.flags.svg}">
+        <p class="country-selector__option__name">${country.name.common}</p>
       </div>`;
-  })
+  });
+  toggleCountriesList();
+  hideLoader();
 }
 
-function displaySelectedCountryDetails() {
-  createCountryDetails();
+function cleanCountryList() {
+  const countrySelectorOptions = document.getElementById('country-selector-options');
+  countrySelectorOptions.style.height = `0px`
+  countrySelectorOptions.innerHTML = '';
+}
+
+function displaySelectedCountryDetails(e) {
+  const countryName = e.currentTarget.children[1].innerHTML;
+  createCountryDetails(countryName);
   openModal();
 }
 
-function createCountryDetails() {
+function createCountryDetails(countryName) {
+  const selectedCountry = countiresList.find(country => country.name.common === countryName);
 
+  if (!selectedCountry) {
+    return
+  }
+
+  const modalContent = document.getElementById('modal-content');
+  modalContent.innerHTML = `
+  <div class="country-details__title">
+    <img class="country-details__title__flag flag" src="${selectedCountry.flags.svg}">
+    <h1>${selectedCountry.name.common}</h1>
+  </div>
+
+  <div class="country-details__info">
+    <p>Official name:</p>
+    <p>${selectedCountry.name.official}</p>
+  </div>
+  <div class="country-details__info">
+    <p>Capital:</p>
+    <p>${selectedCountry.capital}</p>
+  </div>
+  <div class="country-details__info">
+    <p>Languages:</p>
+    <p>${getLanguages(selectedCountry.languages)}</p>
+  </div>
+  <div class="country-details__info">
+    <p>Population:</p>
+    <p>${selectedCountry.population}</p>
+  </div>
+  <div class="country-details__info">
+    <p>Continents:</p>
+    <p>${getContinents(selectedCountry.continents)}</p>
+  </div>
+  <div class="country-details__coat-of-arms">
+    <p>Coat of arms:</p>
+    <div class="country-details__coat-of-arms__wrapper">
+      <img src="${selectedCountry.coatOfArms.svg}">
+    </div>
+  </div>
+  `;
+}
+
+function getLanguages(languages) {
+  let langArray = [];
+  for (const [key, value] of Object.entries(languages)) {
+    langArray.push(value)
+  }
+  return langArray.join(', ');
+}
+
+function getContinents(continents) {
+  return continents.length === 1 ? continents[0] : continents.join(', ');
 }
 
 function toggleCountriesList() {
   const countrySelector = document.getElementById('country-selector');
-  countrySelector.classList.toggle('opened');
+  countiresList && countiresList.length > 0 ? countrySelector.classList.add('opened') : countrySelector.classList.remove('opened')
+
 }
 
-function setSelectedOption(name) {
+function setSelectedOption(e) {
+  const name = e.currentTarget.children[1].innerHTML;
   document.getElementById('country-selector__input').value = name;
 }
 
 function toggleIconRemove(event) {
   const icon = document.getElementById('remove-icon');
-  if (event.target.value) {
-    icon.classList.remove('hide');
-  } else {
-    icon.classList.add('hide');
-  }
+  event.target.value ? icon.classList.remove('hide') : icon.classList.add('hide');
 }
 
 function removeText() {
   const input = document.getElementById('country-selector__input');
   input.value = '';
+  cleanCountryList();
 }
 
 function hideLoader() {
@@ -88,13 +141,13 @@ function openModal() {
   modal.classList.remove('hide');
 }
 
+function closeModal() {
+  const modal = document.getElementById('modal');
+  modal.classList.add('hide');
+}
+
 function addInuptListeners() {
   const input = document.getElementById('country-selector__input');
-  // const optionList = document.querySelectorAll('.country-selector__option');
-
-  input.addEventListener("click", () => {
-    // toggleCountriesList();
-  });
 
   input.addEventListener("input", (event) => {
     toggleIconRemove(event);
@@ -102,36 +155,9 @@ function addInuptListeners() {
     let inputValue = input.value.toLowerCase();
     if (inputValue.length >= 3) {
       getData(inputValue);
+    } else {
+      cleanCountryList();
     }
-
-    // const countrySelector = document.getElementById('country-selector');
-    // if (inputValue) {
-    //   countrySelector.classList.add('filtered');
-    // } else {
-    //   countrySelector.classList.remove('filtered');
-    // }
-
-
-    // [...optionList].forEach(option => {
-    //   const name = option.querySelector('.country-selector__option__name').innerHTML;
-    //   if (!name.toLowerCase().includes(inputValue)) {
-    //     option.classList.add('hide');
-    //   } else {
-    //     option.classList.remove('hide');
-    //   }
-    // })
-
-
-    //   const filteredList = countiresList.filter(country => {
-    //     // const name = option.querySelector('.country-selector__option__name').innerHTML;
-    //     // console.log(name.toLowerCase())
-    //     // console.log(inputValue)
-    //     return country.name.toLowerCase().includes(inputValue)
-    //   })
-
-    // this.createCountiersList(filteredList);    
   });
 
 }
-
-// loadCountriesList();

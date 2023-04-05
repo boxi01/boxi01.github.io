@@ -1,10 +1,6 @@
-$light-grey: #F7F6F4;
-$purple: #5D33D5;
-$dark-purple: #3d17a3;
-$ligth-purple: #E3DFED;
-$blue: #64C5EB;
-
-$elementsWidth: 350px;
+@import './modal.scss';
+@import './selector.scss';
+@import './variable.scss';
 
 html {
   height: 100%;
@@ -27,103 +23,9 @@ h1 {
   color: black;
 }
 
-.country-selector {
-  width: $elementsWidth;
-  border-radius: 8px;
-  height: 40px;
-  width: $elementsWidth;
-  background-color: white;
-  transition: height 0.3s ease-out;
-  // -webkit-box-shadow: 0px 0px 8px -3px rgba(66, 68, 90, 1);
-  // -moz-box-shadow: 0px 0px 8px -3px rgba(66, 68, 90, 1);
-  // box-shadow: 0px 0px 8px -3px rgba(66, 68, 90, 1);
-
-  &__input {
-    position: relative;
-    input {
-      width: 100%;
-      height: 40px;
-      border-radius: 8px;
-      border: none;
-      box-sizing: border-box;
-      padding-left: 40px;
-      font-family: 'Poppins', sans-serif;
-  
-      &:focus,
-      &:focus-visible {
-        outline: none;
-      }
-    }
-
-    &__icon {
-      position: absolute;
-      width: 20px;
-
-      &--search {
-        top: 10px;
-        left: 10px;
-      }
-
-      &--remove {
-        top: 10px;
-        right: 10px;
-
-        &:hover {
-          cursor: pointer;
-        }
-      }
-    }
-  }
-
-
-
-  &__content {
-    display: none;
-    background-color: white;
-    // height: calc(100% - 60px);
-    border-radius: 8px;
-    width: 100%;
-    overflow-y: scroll;
-    overflow-x: hidden;
-    box-sizing: border-box;
-
-    &--hide {
-      display: none;
-    }
-
-    &--show {
-      display: block;
-    }
-  }
-
-  &__option {
-    padding: 10px;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-
-    &__flag {
-      height: 20px;
-      width: auto;
-      margin-right: 20px;
-    }
-  }
-}
-
-#country-selector.opened {
-  // height: 300px;
-}
-
-.opened {
-  .country-selector {
-    &__input {
-      border-bottom-left-radius: 0;
-      border-bottom-right-radius: 0;
-    }
-
-    &__content {
-      display: block;
-    }
+@media screen and (max-width: $xl) {
+  p {
+    font-size: 14px;
   }
 }
 
@@ -176,14 +78,15 @@ h1 {
  display: none;
 }
 
-.country-details-modal {
-  position: fixed;
-  z-index: 1;
-  top: 0;
-  right: 0;
-  width: 30%;
-  height: 100%;
-  background-color: white;
-  box-shadow: -5px 1px 3px -2px rgba(128, 128, 128, 0.26);
-  padding: 30px;
+.flag {
+  border: 1px solid $light-grey;
+}
+
+
+
+@media (min-width: $md ) and (max-width: $xl) {
+  body {
+    justify-content: start;
+    padding-left: 50px;
+  }
 }
