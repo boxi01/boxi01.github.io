@@ -21,6 +21,7 @@
     <script src="main.js"></script>
     <script src="/scripts/education.js"></script>
     <script src="/scripts/experience.js"></script>
+    <script src="/scripts/projects.js"></script>
   </head>
   <body>
     <header>
@@ -29,11 +30,15 @@
           <div class="navigation__btn__icon"></div>
         </div>
         <ul>
-          <li><a href="#about">about</a></li>
+          <!-- <li><a href="#about">about</a></li> -->
           <li><a href="#education">education</a></li>
           <li><a href="#experience">experience</a></li>
           <li><a href="#projects">projects</a></li>
-          <li><button>Resume</button></li>
+          <li>
+            <button onclick="window.open('data/cv-joanna-pudelko.pdf')">
+              Resume
+            </button>
+          </li>
         </ul>
       </nav>
       <div class="social-media">
@@ -46,13 +51,27 @@
     </header>
 
     <div class="container-fluid">
-      <section class="section section--centered main">
-        <h1>Hello 👋, I'm Joanna Pudełko.</h1>
-        <h1>I work as a frontend developer</h1>
-        <button class="main__button">Download my resume</button>
+      <section class="section about">
+        <div class="about__text">
+          <h1>Hello! My name is Joanna and I'm coding professionally</h1>
+          <img class="about__image" src="img/asiap.jpg" alt="profile-photo" />
+          <p>
+            I'm a frontend developer, my major technology is Angular, currently
+            learning React. I have 3 years of professional experience in complex
+            forms and e-commerce. I'm very keen to learning new techonolgies and
+            developing high quality code.
+          </p>
+          <button
+            type="submit"
+            onclick="window.open('data/cv-joanna-pudelko.pdf')"
+          >
+            Download my resume
+          </button>
+        </div>
+        <img class="about__image" src="img/asiap.jpg" alt="profile-photo" />
       </section>
 
-      <section id="about" class="section about">
+      <!-- <section id="about" class="section about">
         <div class="section__title">
           <div class="section__title__number">01</div>
           <h1>About me</h1>
@@ -74,31 +93,11 @@
             />
           </div>
         </div>
-      </section>
+      </section> -->
 
       <section id="education" class="section education"></section>
       <section id="experience" class="section experinece"></section>
-      <section id="projects" class="section projects">
-        <div class="section__title">
-          <div class="section__title__number">04</div>
-          <h1>Projects</h1>
-        </div>
-        <div class="section__content">
-          <div class="projects__item">
-            <h5 class="projects__item__title">Country selector</h5>
-            <p>
-              A simple selector I made to learn how to create components in JS
-            </p>
-            <div class="projects__item__icons">
-              <img src="img/arrow-up.svg" alt="open-page" />
-            </div>
-          </div>
-          <div class="projects__item">
-            <h5 class="projects__item__title">Orange Layout</h5>
-            <p>My first landing page coded during The Awwwesome's challange</p>
-          </div>
-        </div>
-      </section>
+      <section id="projects" class="section projects"></section>
     </div>
   </body>
 </html>

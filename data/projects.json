@@ -1,0 +1,15 @@
+{
+  "title": "Projects",
+  "projects": [
+    {
+      "name": "Country selector",
+      "description": "A simple selector I made to learn how to create components in JS",
+      "url": "/country-selector"
+    },
+    {
+      "name": "Orange Layout",
+      "description": "My first landing page coded during The Awwwesome's challange",
+      "url": "/orange-layout"
+    }
+  ]
+}

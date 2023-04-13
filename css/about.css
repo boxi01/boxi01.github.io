@@ -1,19 +1,62 @@
 @import "./variables.css";
 
-.about__item {
-  display: flex;
-  justify-content: space-evenly;
-}
-
-.about__item > div {
-  width: 50%;
-}
-
-.about__item__image {
-  border-radius: 50%;
+.about {
   position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  justify-content: space-between;
+}
+
+.about::before {
+  position: absolute;
+  content: "";
+  top: 50%;
+  left: 50%;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background-color: var(--accent);
+  filter: blur(30px);
+  box-shadow: 8px 8px 88px 50px var(--accent);
+  opacity: 0.8;
+  z-index: -1;
+}
+.about__text {
+  width: 60%;
+}
+
+.about__text img {
+  display: none;
+}
+
+.about__text button {
+  margin: 3rem 0;
+}
+
+.about__text p {
+  margin-top: 20px;
+}
+
+.about__image {
   width: 20vw;
-  height: 20vw;
+  height: 30vw;
   object-fit: cover;
-  filter: grayscale(100%) contrast(120%);
+  border-radius: 20px;
+}
+
+@media (max-width: 567px) {
+  .about {
+    flex-direction: column;
+  }
+  .about__text {
+    width: 100%;
+  }
+  .about__text img {
+    display: block;
+  }
+
+  .about__image {
+    display: none;
+  }
 }

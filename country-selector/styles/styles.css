@@ -77,6 +77,12 @@
   }
 }
 
+@media (min-width: 768px) and (max-width: 1024px) {
+  .country-details {
+    width: 40%;
+  }
+}
+
 .country-selector {
   width: 350px;
   border-radius: 8px;

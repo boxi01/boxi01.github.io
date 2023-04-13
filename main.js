@@ -21,7 +21,7 @@ sections = [
 
 window.addEventListener('DOMContentLoaded', (event) => {
   loadSectionData();
-  changeTab('enginiety', 0)
+  changeTab('epam', 0)
   const navigationBtn = document.querySelector('.navigation__btn');
   let menuOpen = false
 
@@ -41,4 +41,5 @@ window.addEventListener('DOMContentLoaded', (event) => {
 function loadSectionData() {
   loadEducationData();
   loadExperienceData();
+  loadProjectsData();
 }

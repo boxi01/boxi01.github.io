@@ -29,7 +29,7 @@ function loadExperienceData() {
         const tabItem = document.createElement('div');
         tabItem.classList.add('experience__tab__item');
         tabItem.addEventListener('click', () => changeTab(company.code, index));
-        tabItem.innerHTML = `<p>${company.code}</p>`;
+        tabItem.innerHTML = `<p>${company.name}</p>`;
 
 
         const tabContent = document.createElement('div');
@@ -65,7 +65,7 @@ function loadExperienceData() {
 
       section.appendChild(tab);
       section.appendChild(sectionContent);
-      changeTab('enginiety', 0)
+      changeTab('epam', 0)
     });
 }
 

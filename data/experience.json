@@ -2,8 +2,8 @@
   "title": "Experience",
   "companies": [
     {
-      "name": "Enginiety",
-      "code": "enginiety",
+      "name": "EPAM Systems",
+      "code": "epam",
       "roles": [
         {
           "name": "Frontend developer",
@@ -47,6 +47,23 @@
           "responsibilities" : [
             "Fixing bugs in existing services",
             "Familiarizing yourself with the projects"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Academic Partners Foundation",
+      "code": "apf",
+      "roles": [
+        {
+          "name": "Junior UX/UI Designer",
+          "date": "Jul 2018 - Jan 2019",
+          "responsibilities" : [
+            "Prototyping and designing websites",
+            "Editing HTML and CSS files )",
+            "Writing specifications for developers",
+            "Manual testing websites",
+            "Copywriting"
           ]
         }
       ]

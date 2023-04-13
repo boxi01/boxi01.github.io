@@ -3,6 +3,11 @@
   border-bottom: 4px solid var(--accent-light);
   padding: 0.5rem;
   gap: 3rem;
+  overflow-x: scroll;
+}
+
+.experience__tab::-webkit-scrollbar {
+  display: none;
 }
 
 .experience__tab__item {
