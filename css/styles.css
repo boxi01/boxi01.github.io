@@ -130,9 +130,6 @@ ul {
   font-weight: 600;
 }
 
-.my-data-contact {
-}
-
 .hidden-section {
   display: none;
 }
@@ -195,5 +192,11 @@ ul {
 
   .section {
     padding: 2rem 0;
+  }
+}
+
+@media screen and (max-width: 1300px) {
+  .container-fluid {
+    max-width: var(--mid-width);
   }
 }

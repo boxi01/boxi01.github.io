@@ -2,6 +2,7 @@
 
 .projects .section__content {
   display: flex;
+  flex-wrap: wrap;
   gap: 1rem;
 }
 
@@ -34,4 +35,18 @@
 
 .projects__item__icons img:hover {
   opacity: 0.8;
+}
+
+@media screen and (max-width: 1300px) {
+  .projects__item {
+    width: 30vw;
+    min-height: 25vh;
+  }
+}
+
+@media screen and (max-width: 567px) {
+  .projects__item {
+    width: 100%;
+    min-height: 20vh;
+  }
 }
