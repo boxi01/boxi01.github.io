@@ -41,6 +41,7 @@ function cleanCountryList() {
   const countrySelectorOptions = document.getElementById('country-selector-options');
   countrySelectorOptions.style.height = `0px`
   countrySelectorOptions.innerHTML = '';
+  closeCountriesList();
 }
 
 function displaySelectedCountryDetails(e) {
@@ -106,8 +107,12 @@ function getContinents(continents) {
 
 function toggleCountriesList() {
   const countrySelector = document.getElementById('country-selector');
-  countiresList && countiresList.length > 0 ? countrySelector.classList.add('opened') : countrySelector.classList.remove('opened')
+  countiresList && countiresList.length > 0 ? countrySelector.classList.add('opened') : countrySelector.classList.remove('opened');
+}
 
+function closeCountriesList() {
+  const countrySelector = document.getElementById('country-selector');
+  countrySelector.classList.remove('opened');
 }
 
 function setSelectedOption(e) {

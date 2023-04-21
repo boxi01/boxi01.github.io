@@ -8,16 +8,20 @@
   width: $elementsWidth;
   background-color: white;
   transition: height 0.3s ease-out;
+  margin-bottom: 100px;
 
   &__input {
     position: relative;
+    border: 2px solid $light-grey;
+    border-radius: 8px;
+
     input {
       width: 100%;
       height: 40px;
-      border-radius: 8px;
-      border: none;
       box-sizing: border-box;
       padding-left: 40px;
+      border: none;
+      border-radius: 8px;
       font-family: 'Poppins', sans-serif;
   
       &:focus,
@@ -57,6 +61,7 @@
     overflow-y: scroll;
     overflow-x: hidden;
     box-sizing: border-box;
+    border: 2px solid $light-grey;
 
     &--hide {
       display: none;
@@ -90,10 +95,20 @@
     &__input {
       border-bottom-left-radius: 0;
       border-bottom-right-radius: 0;
+      border-bottom: none;
     }
 
     &__content {
       display: block;
+      border-top-left-radius: 0;
+      border-top-right-radius: 0;
+
     }
+  }
+}
+
+@media (max-width: $sm) {
+  .country-selector {
+    width: 100%;
   }
 }
