@@ -1,4 +1,4 @@
-function loadProjectsData() {
+function loadProjectsData(index) {
   fetch('data/projects.json')
     .then(response => response.json())
     .then(data => {
@@ -10,7 +10,7 @@ function loadProjectsData() {
 
       const sectionNumber = document.createElement('div');
       sectionNumber.classList.add('section__title__number');
-      sectionNumber.innerHTML = '04';
+      sectionNumber.innerHTML = `0${index}`;
 
       const sectionH1 = document.createElement('h1');
       sectionH1.innerHTML = data.title;

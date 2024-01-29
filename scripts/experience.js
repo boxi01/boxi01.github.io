@@ -1,4 +1,4 @@
-function loadExperienceData() {
+function loadExperienceData(index) {
   fetch('data/experience.json')
     .then(response => response.json())
     .then(data => {
@@ -10,7 +10,7 @@ function loadExperienceData() {
 
       const sectionNumber = document.createElement('div');
       sectionNumber.classList.add('section__title__number');
-      sectionNumber.innerHTML = '03';
+      sectionNumber.innerHTML = `0${index}`;
 
       const sectionH1 = document.createElement('h1');
       sectionH1.innerHTML = data.title;
@@ -65,7 +65,7 @@ function loadExperienceData() {
 
       section.appendChild(tab);
       section.appendChild(sectionContent);
-      changeTab('epam', 0)
+      changeTab(data.companies[0].code, 0)
     });
 }
 

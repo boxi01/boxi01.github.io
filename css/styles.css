@@ -18,7 +18,8 @@ body {
     radial-gradient(ellipse at bottom, #ffe2a3, transparent);
 }
 
-p {
+p,
+ul {
   padding: 0;
   margin: 0;
 }

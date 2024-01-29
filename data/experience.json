@@ -2,18 +2,36 @@
   "title": "Experience",
   "companies": [
     {
+      "name": "PacketFront Software",
+      "code": "packet",
+      "roles": [
+        {
+          "name": "Frontend developer",
+          "date": "Jul 2023 - current",
+          "responsibilities" : [
+            "Developing new features"
+          ]
+        }
+      ]
+    },
+    {
       "name": "EPAM Systems",
       "code": "epam",
       "roles": [
         {
           "name": "Frontend developer",
-          "date": "Jan 2022 - current",
+          "date": "Jan 2022 - Jun 2023",
           "responsibilities" : [
-            "Developing e-commerces using SAP Spartacus library and Hybris",
-            "Customizing exsisted components, services and creating new ones",
-            "Implementing application state with NgRx",
-            "Modyfing shared components library",
-            "Working with international team"
+            "Creating e-commerces in Angular 11 and SAP Spartacus",
+            "Developing new features",
+            "Creating reusable components",
+            "Modifying existing classes",
+            "Implementing application state in NgRx",
+            "Maintaining and developing internal libraries",
+            "Integrating external payment methods",
+            "Configuring Google Analytics Events" ,
+            "Working in SCRUM methodology"
+            
           ]
         }
       ]
