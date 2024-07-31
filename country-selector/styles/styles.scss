@@ -10,7 +10,7 @@ body {
   height: 80%;
   display: flex;
   justify-content: center;
-  align-items: center;
+  // align-items: center;
   background: linear-gradient(315deg, hsla(0, 5%, 96%, 1) 34%, hsla(275, 100%, 95%, 1) 82%);  font-family: 'Poppins', sans-serif;
   margin: 0;
   p {
@@ -19,15 +19,53 @@ body {
 }
 
 .main {
+  position: fixed;
+  top: 30%;
   padding: 40px;
   border-radius: 10px;
+  height: 150px;
   background-color: white;
+  transition: 0.5s ease height;
 }
 
 h1 {
   color: black;
   font-size: 32px;
+  margin: 0;
 }
+
+
+.background-image {
+  max-width: 400px;
+  position: absolute;
+  opacity: 0.1;
+}
+
+.image-show-left {
+  left: -50px;
+  top: -50px;
+  animation: show-left $show-animation-time ease-in-out;
+  transform: rotate(-10deg);
+}
+.image-show-right {
+  bottom: -50px;
+  right: 100px;
+  animation: show-right $show-animation-time ease-in-out;
+  transform: rotate(10deg);
+}
+
+@keyframes show-left {
+  0% {
+    transform: translate3d(-95%, -40%, 0);
+  }
+}
+
+@keyframes show-right {
+  0% {
+    transform: translate3d(95%, -20%, 0);
+  }
+}
+
 
 @media screen and (max-width: $xl) {
   p {

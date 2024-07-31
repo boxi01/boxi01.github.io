@@ -10,6 +10,10 @@
     <title>Country Selector</title>
   </head>
   <body>
+    <div>
+      <img id="background-image-left" class="background-image" />
+      <img id="background-image-right" class="background-image" />
+    </div>
     <div id="main" class="main">
       <h1>Country selector</h1>
       <div id="country-selector" class="country-selector">
@@ -42,7 +46,7 @@
       <div id="modal-content" class="country-details__content"></div>
       <button
         class="country-details__close-icon"
-        onclick="closeModal(); removeText()"
+        onclick="closeModal(); removeText(); hideImageBackground()"
       >
         &times
       </button>

@@ -7,13 +7,15 @@
   height: 40px;
   width: $elementsWidth;
   background-color: white;
-  transition: height 0.3s ease-out;
-  margin-bottom: 100px;
+  transition: 0.5s ease height;
+  border: 2px solid $light-grey;
+  border-radius: 8px;
+  margin-top: 20px;
 
   &__input {
     position: relative;
-    border: 2px solid $light-grey;
-    border-radius: 8px;
+    // border: 2px solid $light-grey;
+    // border-radius: 8px;
 
     input {
       width: 100%;
@@ -53,15 +55,17 @@
 
 
   &__content {
-    display: none;
+    visibility: hidden;
+    height: 0px;
     background-color: white;
-    // height: calc(100% - 60px);
-    border-radius: 8px;
+    // border-radius: 8px;
     width: 100%;
     overflow-y: scroll;
     overflow-x: hidden;
     box-sizing: border-box;
-    border: 2px solid $light-grey;
+    // border: 2px solid $light-grey;
+    transition: 0.5s ease height;
+
 
     &--hide {
       display: none;
@@ -83,26 +87,26 @@
       width: auto;
       margin-right: 20px;
     }
+
+    &:hover {
+      background-color: $light-purple;
+    }
   }
 }
 
-#country-selector.opened {
-  // height: 300px;
-}
 
 .opened {
   .country-selector {
     &__input {
-      border-bottom-left-radius: 0;
-      border-bottom-right-radius: 0;
-      border-bottom: none;
+      // border-bottom-left-radius: 0;
+      // border-bottom-right-radius: 0;
+      // border-bottom: none;
     }
 
     &__content {
-      display: block;
-      border-top-left-radius: 0;
-      border-top-right-radius: 0;
-
+      visibility: visible;
+      // border-top-left-radius: 0;
+      // border-top-right-radius: 0;
     }
   }
 }

@@ -34,11 +34,16 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  margin-bottom: 30px;
 }
 
 .country-details__title__flag {
   height: 30px;
   margin-right: 10px;
+}
+
+.country-details table {
+  width: 100%;
 }
 
 .country-details__info {
@@ -47,7 +52,12 @@
   display: flex;
 }
 
-.country-details__info p:first-child {
+.country-details__info td {
+  width: 50%;
+  text-align: left;
+}
+
+.country-details__info td:first-child p {
   font-weight: 600;
   margin-right: 10px;
 }
@@ -59,6 +69,7 @@
 
 .country-details__coat-of-arms__wrapper {
   text-align: center;
+  margin-top: 30px;
 }
 
 .country-details__coat-of-arms__wrapper img {
@@ -83,21 +94,50 @@
   }
 }
 
+.modal-fade-in {
+  -webkit-animation-name: fadeIn;
+          animation-name: fadeIn;
+  -webkit-animation-duration: 0.4s;
+          animation-duration: 0.4s;
+}
+
+@-webkit-keyframes fadeIn {
+  from {
+    right: -300px;
+    opacity: 0;
+  }
+  to {
+    right: 0;
+    opacity: 1;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    right: -300px;
+    opacity: 0;
+  }
+  to {
+    right: 0;
+    opacity: 1;
+  }
+}
+
 .country-selector {
   width: 350px;
   border-radius: 8px;
   height: 40px;
   width: 350px;
   background-color: white;
-  -webkit-transition: height 0.3s ease-out;
-  transition: height 0.3s ease-out;
-  margin-bottom: 100px;
+  -webkit-transition: 0.5s ease height;
+  transition: 0.5s ease height;
+  border: 2px solid #e6e5e5;
+  border-radius: 8px;
+  margin-top: 20px;
 }
 
 .country-selector__input {
   position: relative;
-  border: 2px solid #e6e5e5;
-  border-radius: 8px;
 }
 
 .country-selector__input input {
@@ -135,15 +175,16 @@
 }
 
 .country-selector__content {
-  display: none;
+  visibility: hidden;
+  height: 0px;
   background-color: white;
-  border-radius: 8px;
   width: 100%;
   overflow-y: scroll;
   overflow-x: hidden;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
-  border: 2px solid #e6e5e5;
+  -webkit-transition: 0.5s ease height;
+  transition: 0.5s ease height;
 }
 
 .country-selector__content--hide {
@@ -171,16 +212,12 @@
   margin-right: 20px;
 }
 
-.opened .country-selector__input {
-  border-bottom-left-radius: 0;
-  border-bottom-right-radius: 0;
-  border-bottom: none;
+.country-selector__option:hover {
+  background-color: #f4effcff;
 }
 
 .opened .country-selector__content {
-  display: block;
-  border-top-left-radius: 0;
-  border-top-right-radius: 0;
+  visibility: visible;
 }
 
 @media (max-width: 576px) {
@@ -201,9 +238,6 @@ body {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
   background: linear-gradient(315deg, #f5f4f4 34%, #f4e6ff 82%);
   font-family: 'Poppins', sans-serif;
   margin: 0;
@@ -214,14 +248,72 @@ body p {
 }
 
 .main {
+  position: fixed;
+  top: 30%;
   padding: 40px;
   border-radius: 10px;
+  height: 150px;
   background-color: white;
+  -webkit-transition: 0.5s ease height;
+  transition: 0.5s ease height;
 }
 
 h1 {
   color: black;
   font-size: 32px;
+  margin: 0;
+}
+
+.background-image {
+  max-width: 400px;
+  position: absolute;
+  opacity: 0.1;
+}
+
+.image-show-left {
+  left: -50px;
+  top: -50px;
+  -webkit-animation: show-left 900ms ease-in-out;
+          animation: show-left 900ms ease-in-out;
+  -webkit-transform: rotate(-10deg);
+          transform: rotate(-10deg);
+}
+
+.image-show-right {
+  bottom: -50px;
+  right: 100px;
+  -webkit-animation: show-right 900ms ease-in-out;
+          animation: show-right 900ms ease-in-out;
+  -webkit-transform: rotate(10deg);
+          transform: rotate(10deg);
+}
+
+@-webkit-keyframes show-left {
+  0% {
+    -webkit-transform: translate3d(-95%, -40%, 0);
+            transform: translate3d(-95%, -40%, 0);
+  }
+}
+
+@keyframes show-left {
+  0% {
+    -webkit-transform: translate3d(-95%, -40%, 0);
+            transform: translate3d(-95%, -40%, 0);
+  }
+}
+
+@-webkit-keyframes show-right {
+  0% {
+    -webkit-transform: translate3d(95%, -20%, 0);
+            transform: translate3d(95%, -20%, 0);
+  }
+}
+
+@keyframes show-right {
+  0% {
+    -webkit-transform: translate3d(95%, -20%, 0);
+            transform: translate3d(95%, -20%, 0);
+  }
 }
 
 @media screen and (max-width: 1024px) {

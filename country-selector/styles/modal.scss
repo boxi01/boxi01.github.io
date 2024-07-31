@@ -36,6 +36,7 @@
   &__title {
     display: flex;
     align-items: center;
+    margin-bottom: 30px;
 
     &__flag {
       height: 30px;
@@ -43,14 +44,24 @@
     }
   }
 
+  table {
+    width: 100%;
+  }
+
   &__info {
     display: flex;
-    p {
+    td {
+      width: 50%;
+      text-align: left;
       &:first-child {
-        @include bold-name;
+        p {
+
+          @include bold-name;
+        }
       }
     }
   }
+
 
   &__coat-of-arms {
     p {
@@ -59,6 +70,7 @@
 
     &__wrapper {
       text-align: center;
+      margin-top: 30px;
       img {
         width: 50%;
         text-align: center;
@@ -85,4 +97,15 @@
   .country-details {
     width: 40%;
   }
+}
+
+.modal-fade-in {
+  animation-name: fadeIn;
+  animation-duration: 0.4s;
+}
+
+
+@keyframes fadeIn {
+  from {right: -300px; opacity: 0}
+  to {right: 0; opacity: 1}
 }

@@ -1,30 +1,40 @@
 let countiresList = [];
+let selectedCountry = null;
 
 document.addEventListener("DOMContentLoaded", function () {
-  addInuptListeners();
+  getCountryInput().addEventListener("input", (event) => {
+    const searchText = event.target.value;
+    toggleIconRemove(event);
+
+    if (searchText.length >= 3) {
+      fetchCountries(searchText).then(
+        countries => {
+          countiresList = countries;
+          showCountries(countries);
+        }
+      )
+    }
+
+    if (searchText.length < 3 && countiresList.length > 0) {
+      cleanCountryList();
+    }
+  });
 });
 
-
-function getData(name) {
-  showLoader();
-  fetch(`https://restcountries.com/v3.1/name/${name}`)
-    .then(response => {
-      return response.json();
-    })
-    .then(countries => {
-      countiresList = countries;
-      if (countiresList.length > 0) {
-        createCountiersList(countiresList);
-      }
-    })
-    .catch((error) => {
-      console.error("There has been a problem with your fetch operation:", error);
-    });
+async function fetchCountries(name) {
+  const response = await fetch(`https://restcountries.com/v3.1/name/${name}`);
+  return await response.json();
 }
 
-function createCountiersList(list) {
-  const countrySelectorOptions = document.getElementById('country-selector-options');
-  countrySelectorOptions.style.height = `${list.length * 45}px`
+function showCountries(countries) {
+  createCountiersOptions(countries);
+  toggleCountriesOptions();
+  setElementsHeight(countries.length);
+  hideLoader();
+}
+
+function createCountiersOptions(list) {
+  const countrySelectorOptions = getCountrySelectorOptions();
   countrySelectorOptions.innerHTML = '';
   list.forEach((country, index) => {
     countrySelectorOptions.innerHTML +=
@@ -33,25 +43,29 @@ function createCountiersList(list) {
         <p class="country-selector__option__name">${country.name.common}</p>
       </div>`;
   });
-  toggleCountriesList();
-  hideLoader();
+}
+
+function setElementsHeight(number) {
+  document.getElementById('main').style.height = number > 0 ? `${150 + number * 40}px` : '150px';
+  getCountrySelector().style.height = number > 0 ? `${45 + number * 45}px` : '40px';
+  getCountrySelectorOptions().style.height = number > 0 ? `${number * 45}px` : '0px'
 }
 
 function cleanCountryList() {
-  const countrySelectorOptions = document.getElementById('country-selector-options');
-  countrySelectorOptions.style.height = `0px`
-  countrySelectorOptions.innerHTML = '';
   closeCountriesList();
+  setElementsHeight(0);
 }
 
 function displaySelectedCountryDetails(e) {
   const countryName = e.currentTarget.children[1].innerHTML;
   createCountryDetails(countryName);
   openModal();
+  showBackgroundImage();
+  cleanCountryList();
 }
 
 function createCountryDetails(countryName) {
-  const selectedCountry = countiresList.find(country => country.name.common === countryName);
+  selectedCountry = countiresList.find(country => country.name.common === countryName);
 
   if (!selectedCountry) {
     return
@@ -64,26 +78,28 @@ function createCountryDetails(countryName) {
     <h1>${selectedCountry.name.common}</h1>
   </div>
 
-  <div class="country-details__info">
-    <p>Official name:</p>
-    <p>${selectedCountry.name.official}</p>
-  </div>
-  <div class="country-details__info">
-    <p>Capital:</p>
-    <p>${selectedCountry.capital}</p>
-  </div>
-  <div class="country-details__info">
-    <p>Languages:</p>
-    <p>${getLanguages(selectedCountry.languages)}</p>
-  </div>
-  <div class="country-details__info">
-    <p>Population:</p>
-    <p>${selectedCountry.population}</p>
-  </div>
-  <div class="country-details__info">
-    <p>Continents:</p>
-    <p>${getContinents(selectedCountry.continents)}</p>
-  </div>
+  <table>
+    <tr class="country-details__info">
+      <td><p>Official name:</p></td>
+      <td><p>${selectedCountry.name.official}</p></td>
+    </tr>
+    <tr class="country-details__info">
+      <td><p>Capital:</p></td>
+      <td><p>${selectedCountry.capital}</p></td>
+    </tr>
+    <tr class="country-details__info">
+      <td><p>Languages:</p></td>
+      <td><p>${getLanguages(selectedCountry.languages)}</p></td>
+    </tr>
+    <tr class="country-details__info">
+      <td><p>Population:</p></td>
+      <td><p>${selectedCountry.population}</p></td>
+    </tr>
+    <tr class="country-details__info">
+      <td><p>Continents:</p></td>
+      <td><p>${getContinents(selectedCountry.continents)}</p></td>
+    </tr>
+  </table>
   <div class="country-details__coat-of-arms">
     <p>Coat of arms:</p>
     <div class="country-details__coat-of-arms__wrapper">
@@ -105,14 +121,13 @@ function getContinents(continents) {
   return continents.length === 1 ? continents[0] : continents.join(', ');
 }
 
-function toggleCountriesList() {
-  const countrySelector = document.getElementById('country-selector');
+function toggleCountriesOptions() {
+  const countrySelector = getCountrySelector();
   countiresList && countiresList.length > 0 ? countrySelector.classList.add('opened') : countrySelector.classList.remove('opened');
 }
 
 function closeCountriesList() {
-  const countrySelector = document.getElementById('country-selector');
-  countrySelector.classList.remove('opened');
+  getCountrySelector().classList.remove('opened');
 }
 
 function setSelectedOption(e) {
@@ -144,25 +159,36 @@ function showLoader() {
 function openModal() {
   const modal = document.getElementById('modal');
   modal.classList.remove('hide');
+  modal.classList.add('modal-fade-in');
 }
 
 function closeModal() {
   const modal = document.getElementById('modal');
+  modal.classList.remove('modal-fade-in');
   modal.classList.add('hide');
 }
 
-function addInuptListeners() {
-  const input = document.getElementById('country-selector__input');
+function getCountrySelector() {
+  return document.getElementById('country-selector');
+}
 
-  input.addEventListener("input", (event) => {
-    toggleIconRemove(event);
+function getCountryInput() {
+  return document.getElementById('country-selector__input');
+}
 
-    let inputValue = input.value.toLowerCase();
-    if (inputValue.length >= 3) {
-      getData(inputValue);
-    } else {
-      cleanCountryList();
-    }
-  });
+function getCountrySelectorOptions() {
+  return document.getElementById('country-selector-options');
+}
 
+function showBackgroundImage() {
+  const leftImg = document.getElementById('background-image-left');
+  const rightImg = document.getElementById('background-image-right');
+  leftImg.src = selectedCountry.coatOfArms.svg;
+  rightImg.src = selectedCountry.coatOfArms.svg;
+  leftImg.classList.add('image-show-left');
+  rightImg.classList.add('image-show-right');
+}
+
+function hideImageBackground() {
+  // TODO
 }

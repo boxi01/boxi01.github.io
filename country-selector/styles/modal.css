@@ -34,11 +34,16 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  margin-bottom: 30px;
 }
 
 .country-details__title__flag {
   height: 30px;
   margin-right: 10px;
+}
+
+.country-details table {
+  width: 100%;
 }
 
 .country-details__info {
@@ -47,7 +52,12 @@
   display: flex;
 }
 
-.country-details__info p:first-child {
+.country-details__info td {
+  width: 50%;
+  text-align: left;
+}
+
+.country-details__info td:first-child p {
   font-weight: 600;
   margin-right: 10px;
 }
@@ -59,6 +69,7 @@
 
 .country-details__coat-of-arms__wrapper {
   text-align: center;
+  margin-top: 30px;
 }
 
 .country-details__coat-of-arms__wrapper img {
@@ -80,6 +91,35 @@
 @media (min-width: 768px) and (max-width: 1024px) {
   .country-details {
     width: 40%;
+  }
+}
+
+.modal-fade-in {
+  -webkit-animation-name: fadeIn;
+          animation-name: fadeIn;
+  -webkit-animation-duration: 0.4s;
+          animation-duration: 0.4s;
+}
+
+@-webkit-keyframes fadeIn {
+  from {
+    right: -300px;
+    opacity: 0;
+  }
+  to {
+    right: 0;
+    opacity: 1;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    right: -300px;
+    opacity: 0;
+  }
+  to {
+    right: 0;
+    opacity: 1;
   }
 }
 /*# sourceMappingURL=modal.css.map */
