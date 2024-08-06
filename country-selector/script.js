@@ -185,10 +185,19 @@ function showBackgroundImage() {
   const rightImg = document.getElementById('background-image-right');
   leftImg.src = selectedCountry.coatOfArms.svg;
   rightImg.src = selectedCountry.coatOfArms.svg;
+  leftImg.classList.remove('image-hide-left');
   leftImg.classList.add('image-show-left');
+
+  rightImg.classList.remove('image-hide-right');
   rightImg.classList.add('image-show-right');
 }
 
 function hideImageBackground() {
-  // TODO
+  const leftImg = document.getElementById('background-image-left');
+  const rightImg = document.getElementById('background-image-right');
+  leftImg.classList.remove('image-show-left');
+  leftImg.classList.add('image-hide-left');
+
+  rightImg.classList.remove('image-show-right');
+  rightImg.classList.add('image-hide-right');
 }
