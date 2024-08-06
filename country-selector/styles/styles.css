@@ -241,6 +241,7 @@ body {
   background: linear-gradient(315deg, #f5f4f4 34%, #f4e6ff 82%);
   font-family: 'Poppins', sans-serif;
   margin: 0;
+  overflow: hidden;
 }
 
 body p {
