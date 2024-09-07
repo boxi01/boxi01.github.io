@@ -4,12 +4,19 @@
     {
       "name": "PacketFront Software",
       "code": "packet",
+      "summary": "As the sole frontend developer on my team, I'm responsible for the development of the graphical user interface (GUI) for a network orchestration system",
+      "stack": ["JavaScript", "jQuery", "Vert.x", "Java", "Robot Framework", "JSON-RPC", "SOAP"],
       "roles": [
         {
           "name": "Frontend developer",
           "date": "Jul 2023 - current",
           "responsibilities" : [
-            "Developing new features"
+            "Implement new features and resolve bugs using JavaScript, jQuery, and Java (Vert.x) for both front-end and back-end",
+            "Create and maintain dynamic web page templates using FreeMarker Template Language (FTL)",
+            "Refactor and optimize legacy code to improve performance, maintainability, and user experience",
+            "Develop and integrate API methods using JSON-RPC to enable communication between the front-end and core module",
+            "Create and maintain automated end-to-end (e2e) tests in the Robot Framework to ensure reliable and high-quality GUI functionality",
+            "Drive the modernization of the system’s appearance, enhancing visual appeal and usability"
           ]
         }
       ]
@@ -17,6 +24,8 @@
     {
       "name": "EPAM Systems",
       "code": "epam",
+      "summary": "",
+      "stack": [],
       "roles": [
         {
           "name": "Frontend developer",
@@ -39,6 +48,8 @@
     {
       "name": "Centralny Ośrodek Informatyki",
       "code": "coi",
+      "summary": "",
+      "stack": [],
       "roles": [
         {
           "name": "Frontend developer",
@@ -72,6 +83,8 @@
     {
       "name": "Academic Partners Foundation",
       "code": "apf",
+      "summary": "",
+      "stack": [],
       "roles": [
         {
           "name": "Junior UX/UI Designer",

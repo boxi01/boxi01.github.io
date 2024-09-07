@@ -20,3 +20,19 @@ a {
   text-decoration: none;
   color: var(--dark);
 }
+
+.btn-stack {
+  border: 1px solid var(--accent);
+  color: var(--accent);
+  border-radius: 15px;
+  padding: 0.4rem;
+  text-transform: none;
+  font-size: 0.8rem;
+}
+
+.btn-stack:hover {
+  border: 1px solid var(--accent);
+  background-color: transparent;
+  color: var(--accent);
+  cursor: default;
+}

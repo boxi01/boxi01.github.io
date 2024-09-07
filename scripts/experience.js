@@ -39,22 +39,40 @@ function loadExperienceData(index) {
         const tabContentTitle = document.createElement('h4');
         tabContentTitle.innerHTML = company.name;
 
-        company.roles.forEach(role => {
-          const tabContentPosition = document.createElement('div');
-          tabContentPosition.classList.add('experience__tab__content__position');
+        let stack = '';
+        company.stack.forEach(item => {
+          stack += `<button class="btn-stack"><span>${item}</span></button>`
+        });
 
+        const tabContentSummary = document.createElement('div');
+        tabContentSummary.classList.add('experience__tab__content__position__summary');
+        tabContentSummary.innerHTML = `
+        <div class="experience__tab__content__position__summary">
+          <p><strong>Summary</strong></p>
+          <p>${company.summary}</p>
+          <div>${stack}</div>
+        </div>`;
+
+        tabContent.appendChild(tabContentSummary);
+
+        const tabContentPosition = document.createElement('div');
+        tabContentPosition.classList.add('experience__tab__content__position');
+
+        company.roles.forEach(role => {
           let responsibilities = '';
           role.responsibilities.forEach(responsibility => {
             responsibilities += `<li>${responsibility}</li>`
           });
 
-          tabContentPosition.innerHTML = `
-          <div class="experience__tab__content__position__title">
-            <p class="text-bold">${role.name}</p>
-            <span class="text-separator"></span>
-            <span class="text-alternative">${role.date}</span>
-          </div>
-          <ul class="experience__tab__content__position__description">${responsibilities}</ul>`;
+          tabContentPosition.innerHTML += `
+          <div>
+            <div class="experience__tab__content__position__title">
+              <p class="text-bold">${role.name}</p>
+              <span class="text-separator"></span>
+              <span class="text-alternative">${role.date}</span>
+            </div>
+            <ul class="experience__tab__content__position__description">${responsibilities}</ul>
+          </div>`;
 
           tabContent.appendChild(tabContentPosition);
         });
@@ -89,7 +107,7 @@ function showTabContent(sectionName) {
   const tabsContentList = document.querySelectorAll('.experience__tab__content');
   tabsContentList.forEach(tab => {
     tab.id === sectionName
-      ? tab.style.display = 'block'
+      ? tab.style.display = 'flex'
       : tab.style.display = 'none';
   });
 }
